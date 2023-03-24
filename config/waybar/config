@@ -1,0 +1,67 @@
+{
+    "height": 56, // Waybar height (to be removed for auto height)
+    "layer": "top", // Waybar at top layer
+    "margin-top": 28,
+    "margin-left": 56,
+    "margin-bottom": 0,
+    "margin-right": 56,
+    "spacing": 20, // Gaps between modules (4px)
+    "modules-left": ["custom/launcher", "clock", "wlr/workspaces"],
+    "modules-center": ["custom/spotify"],
+    "modules-right": ["tray", "pulseaudio", "network"],
+    "wlr/workspaces": {
+      "format": " {icon} ",
+      "on-click": "activate",
+      "format-icons": {
+        "1": "main",
+        "2": "telegram",
+        "3": "discord",
+        "4": "",
+        "5": "",
+        "urgent": "",
+        "active": "",
+        "default": ""
+      }
+    },
+    "hyprland/window": {
+        "format": "{}"
+    },
+    "tray": {
+        "spacing": 10
+    },
+    "clock": {
+        "format": " {:%a %b %d | %I:%M %p} ",
+        "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+    },
+
+    "network": {
+        "format-wifi": " 直 {signalStrength}% ",
+        "format-ethernet": "  wired ",
+        "format-disconnected": " 睊 ",
+        "on-click": "bash ~/.config/waybar/scripts/rofi-wifi-menu.sh",
+        "format-disconnected": " Disconnected   ",
+    },
+
+    "pulseaudio": {
+        "format": " {icon} {volume}% ",
+        "format-bluetooth": "  {volume}%",
+        "format-bluetooth-muted": " ",
+        "format-muted": "婢",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+ 
+    "custom/launcher": {
+        "format": " <span color='#c8d2e0'>     </span>",
+        "on-click": "rofi -show drun",
+    },
+}
+
